@@ -1,0 +1,34 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>dist</id>
+	<formats>
+		<format>dir</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<excludes>
+				<exclude>com.github.fwi:appboot</exclude>
+			</excludes>
+		</dependencySet>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+			<includes>
+				<include>com.github.fwi:appboot</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<fileSet>
+			<directory>dist/conf</directory>
+			<outputDirectory>conf</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>dist/scripts</directory>
+			<outputDirectory>.</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

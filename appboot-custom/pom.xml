@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.fwi</groupId>
+		<artifactId>appboot-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../appboot-parent</relativePath>
+	</parent>
+	<artifactId>appboot-custom</artifactId>
+
+	<properties>
+		<manifest.main>com.github.fwi.appboot.custom.MyAppBoot</manifest.main>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>appboot</artifactId>
+			<version>${project.version}</version>
+			<!-- We only need it for compilation, not for runtime. -->
+			<!-- All relevant classes will be copied in the final jar-file of this project. -->
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>appboot</artifactId>
+									<version>${project.version}</version>
+									<type>jar</type>
+								</artifactItem>
+							</artifactItems>
+							<excludes>META-INF/**</excludes>
+							<outputDirectory>${project.build.directory}/classes</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>${manifest.main}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
