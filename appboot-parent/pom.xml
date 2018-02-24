@@ -92,7 +92,7 @@
 							<phase>verify</phase>
 							<id>verify-javadocs</id>
 							<goals>
-								<goal>javadoc-no-fork</goal>
+								<goal>jar</goal>
 							</goals>
 						</execution>
 					</executions>
