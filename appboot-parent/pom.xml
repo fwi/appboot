@@ -29,14 +29,6 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<distributionManagement>
-		<repository>
-			<id>github-fwi-appboot</id>
-			<name>GitHub fwi-appboot Maven Packages</name>
-			<url>https://maven.pkg.github.com/fwi/appboot</url>
-		</repository>
-	</distributionManagement>
-
 	<build>
 		<pluginManagement>
 			<plugins>

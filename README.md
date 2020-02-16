@@ -20,10 +20,6 @@ Full build for core:
 	cd appboot
 	mvn clean verify assembly:single
 
-Deployment:
-
-	mvn deploy -Dtoken=GH_TOKEN
-
 Usage (shown with <tt>java -jar appboot.jar</tt>):
 
 	AppBoot version 1.0.1
