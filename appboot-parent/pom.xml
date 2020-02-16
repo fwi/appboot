@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.fwi</groupId>
 	<artifactId>appboot-parent</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<packaging>pom</packaging>
 
 	<url>https://github.com/fwi/appboot</url>
@@ -27,6 +28,14 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>github-fwi-appboot</id>
+			<name>GitHub fwi-appboot Maven Packages</name>
+			<url>https://maven.pkg.github.com/fwi/appboot</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
 		<pluginManagement>

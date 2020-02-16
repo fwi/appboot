@@ -20,9 +20,13 @@ Full build for core:
 	cd appboot
 	mvn clean verify assembly:single
 
+Deployment:
+
+	mvn deploy -Dtoken=GH_TOKEN
+
 Usage (shown with <tt>java -jar appboot.jar</tt>):
 
-	AppBoot version 1.0.0
+	AppBoot version 1.0.1
 	
 	Creates a boot class-loader and runs the main class of the application.
 	Resources (e.g. the appboot.jar) for the application must be located
