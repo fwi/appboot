@@ -282,10 +282,31 @@ public class AppBoot {
 			// AppBoot is on class-path which is entered into system-classloader.
 			final URLClassLoader sysCL = (URLClassLoader) Thread.currentThread().getContextClassLoader();
 			sysUrls = sysCL.getURLs();
-		} catch (Exception e) {
-			// sysCL was probably not a URLClassLoader - nothing we can do
+		} catch (ClassCastException e) {
+			// Java 9 and up.
 			if (debug) {
-				showln("Failed to retrieve URLs from system classloader: " + e);
+				showln("System classloader is not a URLClassLoader.");
+			}
+		} catch (Exception e) {
+			// not expecting this error.
+			if (debug) {
+				showln("System classloader did not reveal class-path URL: " + e);
+			}
+		}
+		if (sysUrls == null) {
+			try {
+				// Alternative to using the class-path property is to use:
+				// java.lang.management.ManagementFactory.getRuntimeMXBean().getClassPath()
+				String[] cpFiles =  System.getProperty("java.class.path").split(File.pathSeparator);
+				List<URL> cpUrls = new ArrayList<URL>();
+				for (int i = 0; i < cpFiles.length; i++) {
+					cpUrls.add(new File(cpFiles[i]).toURI().toURL());
+				}
+				sysUrls = cpUrls.toArray(new URL[0]);
+			} catch (Exception e) {
+				if (debug) {
+					showln("Failed to retrieve URLs from system property java.class.path: " + e);
+				}
 			}
 		}
 		if (sysUrls != null) {
