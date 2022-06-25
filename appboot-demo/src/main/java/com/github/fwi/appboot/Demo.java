@@ -3,9 +3,6 @@ package com.github.fwi.appboot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.fwi.appboot.BootKeys;
-import com.github.fwi.appboot.BootUtil;
-
 /**
  * This project provides an assembly that can be used to test appboot functions.
  * <br>After running <code>maven clean package</code>:
