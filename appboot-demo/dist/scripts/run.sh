@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # For debugging this script
 # set -x
 
@@ -10,3 +10,4 @@ MAINJAR="${SCRIPTDIR}/lib/appboot.jar"
 
 java $JAVAPAR -jar $MAINJAR "$@"
 read -n1 -r -p "Press any key to continue..." key
+echo 

@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * This project provides an assembly that can be used to test appboot functions.
  * <br>After running <code>maven clean package</code>:
  * <br>	- use <tt>target/test-classes/rundemo.bat</tt> to run Appboot in a Maven test environment and
- * <br>	- use <tt>target/appboot-demo-&lt;version&gt;/run.bat</tt> to run Appboot in a installed-app environment. 
+ * <br>	- use <tt>target/appboot-demo-&lt;version&gt;/run.bat</tt> to run Appboot in an installed-app environment. 
  *
  * @author fwiers
  *
